@@ -7,8 +7,87 @@
     /* This cubic-bezier creates that premium, "heavy" floating feel */
     --transition-smooth: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
+/* Preloader Styling */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 9999; /* Higher than everything else */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), visibility 1s;
+}
 
+.preloader-content {
+    text-align: center;
+    width: 200px;
+}
+
+.logo-loader {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.loader-bar {
+    width: 100%;
+    height: 1px;
+    background: #222;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: #fff;
+    transition: width 0.4s ease;
+}
+
+.loading-text {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #666;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Hide the preloader when done */
+.preloader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Add a reveal animation to the hero content */
+.hero-viewport {
+    opacity: 0;
+    transform: scale(1.05);
+    transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-visible {
+    opacity: 1;
+    transform: scale(1);
+}
 /* 2. BASE RESET */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-y: auto !important;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -206,6 +285,48 @@ body, html {
     .overlay-text {
         font-size: 1.8rem;
     }
+}
+
+.nav-link-custom {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+    pointer-events: auto; /* Required because brand-layer has pointer-events: none */
+}
+
+.nav-link-custom:hover {
+    color: var(--text-main);
+}
+
+/* Project Gallery Styling */
+.project-box {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background: #111;
+    border: 1px solid #222;
+}
+
+.project-meta {
+    padding: 20px;
+    font-weight: 700;
+}
+
+/* Contact Form Styling */
+.form-control {
+    background: #111;
+    border: 1px solid #333;
+    color: white;
+    padding: 15px;
+    border-radius: 0;
+}
+
+.form-control:focus {
+    background: #151515;
+    border-color: #555;
+    color: white;
+    box-shadow: none;
 }
 
 /* 8. RETINA RENDERING ENHANCEMENT */
